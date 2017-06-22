@@ -34,14 +34,12 @@ public final class BackpacksContent {
 			BackpackRegistry.registerBackpackEntity(EntityZombie.class, BACKPACK, 1.0); //1.0 / 800);
 			BackpackRegistry.registerBackpackEntity(EntitySkeleton.class, BACKPACK, 1.0); //1.0 / 1200);
 			BackpackRegistry.registerBackpackEntity(EntityPigZombie.class, BACKPACK, 1.0); //1.0 / 1000);
-		
+			
 			LootTableList.register(ItemBackpack.LOOT_TABLE);
 		}
 		
 		// BackpackRegistry.registerBackpackEntity(EntityEnderman.class, ENDER_BACKPACK, 1.0 / 80);
 		
 	}
-	
-	// FIXME: Add JSON recipe.
 	
 }
