@@ -1,4 +1,3 @@
-/*
 package net.mcft.copy.backpacks.item.recipe;
 
 import java.util.ArrayList;
@@ -11,17 +10,20 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.fml.common.registry.IForgeRegistryEntry;
 
 import net.mcft.copy.backpacks.item.IDyeableItem;
 import net.mcft.copy.backpacks.misc.util.DyeUtils;
 import net.mcft.copy.backpacks.misc.util.NbtUtils;
 
-/** Recipe which handled coloring of dyeable items which implement IDyeableItem. *\/
- * // FIXME: Reimplement dyeing recipe.
-public class RecipeDyeableItem implements IRecipe {
+/** Recipe which handled coloring of dyeable items which implement IDyeableItem. */
+public class RecipeDyeableItem extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 	
 	@Override
-	public int getRecipeSize() { return 10; }
+	public boolean isHidden() { return true; }
+	
+	@Override
+	public boolean canFit(int width, int height) { return (width * height) >= 2; }
 	
 	@Override
 	public ItemStack getRecipeOutput() { return ItemStack.EMPTY; }
@@ -71,13 +73,10 @@ public class RecipeDyeableItem implements IRecipe {
 	@Override
 	public NonNullList<ItemStack> getRemainingItems(InventoryCrafting inv) {
 		NonNullList<ItemStack> list = NonNullList.<ItemStack>withSize(inv.getSizeInventory(), ItemStack.EMPTY);
-
 		for (int i = 0; i < list.size(); ++i) {
 			ItemStack stack = inv.getStackInSlot(i);
 			list.set(i, ForgeHooks.getContainerItem(stack));
 		}
-
 		return list;
 	}
 }
-*/
